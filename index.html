@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>otoの自己紹介</title>
+  <link rel="icon" href="nigaoe.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: #222; /* 常にダークモードの背景色 */
+      color: #fff; /* 常にダークモードの文字色 */
+    }
+
+    .profile-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      background-color: #333; /* ダークモード時のコンテナ背景色 */
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* アニメーションの定義 */
+    @keyframes fadeInScaleUp {
+      0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #666; /* ダークモード時の画像の枠 */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* ダークモード時の画像の影 */
+      animation: fadeInScaleUp 1s ease-out forwards;
+      transition: transform 0.3s ease;
+      opacity: 0; /* JSでopacityを1にするので最初は0 */
+    }
+    img:hover {
+      transform: scale(1.05) translateY(-5px);
+      animation: none;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #eee; /* ダークモード時の文字色 */
+    }
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      color: #ccc; /* ダークモード時の文字色 */
+    }
+
+    #show-more-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #6c757d; /* ダークモードに合わせたボタン色 */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+    #show-more-button:hover {
+      background-color: #495057;
+    }
+
+    #details-section {
+      margin-top: 40px;
+      padding: 30px;
+      border-top: 1px solid #444; /* ダークモード時の区切り線 */
+      text-align: center; /* **ここを修正：中央揃えに** */
+      background-color: #444; /* ダークモード時のセクション背景色 */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    #details-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2em;
+      color: #eee;
+    }
+    .detail-item {
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px dotted #333;
+    }
+    .detail-item:last-child {
+      border-bottom: none;
+    }
+    .detail-item h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #87ceeb;
+    }
+    .detail-item ul {
+      list-style-type: none; /* リストの点を削除 */
+      margin-left: 0; /* 左マージンをリセット */
+      padding-left: 0; /* 左パディングをリセット */
+      text-align: center; /* **ここを修正：リストも中央揃えに** */
+    }
+    .detail-item ul li {
+      margin-bottom: 5px;
+    }
+
+    .hobby-sub-item p { /* 各趣味の説明文も中央揃えにする場合 */
+        text-align: center;
+    }
+
+    .hobby-image {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      animation: fadeInScaleUp 1.2s ease-out forwards;
+      opacity: 0;
+    }
+    .hobby-image:hover {
+      transform: scale(1.03) translateY(-3px);
+    }
+
+    /* レスポンシブデザインのスタイル */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      .profile-container, #details-section {
+        padding: 15px;
+      }
+      img {
+        width: 150px;
+        height: 150px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1em;
+      }
+      .hobby-image {
+        width: 200px;
+        height: 150px;
+      }
+    }
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8em;
+      }
+      p {
+        font-size: 0.9em;
+      }
+      .detail-item h3 {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <img id="profile-image" src="nigaoe.png" alt="プロフ画像">
+    <h1 id="name"></h1>
+    <p id="comment"></p>
+    <button id="show-more-button">もっと詳しく！</button>
+  </div>
+
+  <section id="details-section" style="display: none;">
+    <h2>詳細プロフィール</h2>
+
+    <div class="detail-item">
+      <h3>💻 担当科目</h3>
+      <ul>
+        <li>アルゴリズムとデータ構造</li>
+        <li>基本情報技術者試験対策</li>
+        <li>応用情報技術者試験対策</li>
+        <li>Python基本文法</li>
+        <li>AIプログラミング演習（見習い）</li>
+        <li>ネットワーク基礎(パケットトレーサー使用)</li>
+      </ul>
+    </div>
+
+    <div class="detail-item">
+      <h3>🏆 所有資格・免許</h3>
+      <ul>
+        <li>ITパスポート</li>
+        <li>情報セキュリティマネジメント</li>
+        <li>基本情報技術者</li>
+        <li>応用情報技術者</li>
+        <li>情報処理安全確保支援士※2025年取得予定</li>
+        <li>Ｇ(Generalist)検定</li>
+        <li>日商簿記３級</li>
+        <li>小学校教諭一種免許状</li>
+        <li>中学校教諭一種免許状（なぜか保健体育）</li>
+        <li>高等学校教諭一種免許状（なぜか保健体育）</li>
+        <li>高等学校教諭一種免許状（情報）※2025年取得予定</li>
+      </ul>
+    </div>
+
+    <div class="detail-item">
+      <h3>🎨 趣味</h3>
+      <div class="hobby-sub-item">
+        <h4>🩸 献血～もうすぐ１００回の大台に乗ります</h4>
+        <img src="kenketsu.png" alt="献血のカードの一部" class="hobby-image">
+        <p>かれこれ15年以上、定期的に通ってます。献血ルームの雰囲気が好きで、子供を連れていくとお菓子やジュースに喜んでくれるのも嬉しいです。</p>
+      </div>
+      <div class="hobby-sub-item">
+        <h4>🏍️ バイクライフ～絵心ないんです</h4>
+        <img src="bike.png" alt="バイクのイラストイメージ" class="hobby-image">
+        <p>晴れの日には愛車のRebel250で通勤しています。何でも自動化されている現代においてマニュアルを扱うことはとても新鮮です。風を切って走る爽快感は言うまでもありません。</p>
+      </div>
+      <div class="hobby-sub-item">
+        <h4>📚 読書～所有冊数を例えるならこんな感じ</h4>
+        <img src="book.png" alt="冊数を例えるならこんな感じ" class="hobby-image">
+        <p>学生の頃から気になった本は買う、借りることを続けた結果、まあまあ本だらけに。図書館や書店はトイレ、献血ルームに次いで落ち着く場所です。</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    console.log("JS読み込み成功");
+
+    const profile = {
+      name: "oto",
+      comment: '中年の某専門学校講師。ITにより詳しくなりたい。参考サイト⇒<a href="https://otosan.streamlit.app/" target="_blank">otosan.streamlit.app</a>',
+      image: "nigaoe.png"
+    };
+
+    function typeText(id, text, speed = 2) {
+      const el = document.getElementById(id);
+      el.textContent = '';
+      [...text].forEach((char, i) => {
+        setTimeout(() => el.textContent += char, i * speed);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const profileImage = document.getElementById('profile-image');
+      profileImage.src = profile.image;
+      profileImage.style.opacity = 1;
+
+      typeText('name', profile.name);
+      document.getElementById('comment').innerHTML = profile.comment;
+
+      document.querySelectorAll('.hobby-image').forEach(img => {
+        img.style.opacity = 1;
+      });
+    });
+
+    const showMoreButton = document.getElementById('show-more-button');
+    const detailsSection = document.getElementById('details-section');
+
+    showMoreButton.addEventListener('click', () => {
+      if (detailsSection.style.display === 'none' || detailsSection.style.display === '') {
+        detailsSection.style.display = 'block';
+        showMoreButton.textContent = '閉じる';
+        detailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        detailsSection.style.display = 'none';
+        showMoreButton.textContent = 'もっと詳しく！';
+      }
+    });
+  </script>
+</body>
+</html>
