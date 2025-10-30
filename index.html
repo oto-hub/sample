@@ -7,6 +7,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Noto+Sans+JP:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -49,8 +52,8 @@
 <div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
 <div class="absolute inset-0 z-0 bg-gradient-to-br from-[#f4f6f8] to-[#e8eaf6] dark:from-[#101c22] dark:to-[#1a2b34] animated-gradient"></div>
 <div class="relative z-10 layout-container flex h-full grow flex-col">
-<div class="px-4 sm:px-8 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col w-full max-w-4xl flex-1">
+<div class="px-4 sm:px-8 md:px-20 lg:px-40 flex flex-1 flex-col justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-4xl flex-1 mx-auto">
 <header class="flex items-center justify-between whitespace-nowrap px-6 sm:px-10 py-4 bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-xl border border-solid border-black/10 dark:border-white/10">
 <div class="flex items-center gap-4 text-gray-800 dark:text-white">
 <div class="size-5 text-primary">
@@ -70,27 +73,75 @@
 </header>
 <main class="flex-grow flex items-center justify-center">
 <div class="w-full @container">
-<div class="flex flex-col items-center gap-8 px-4 py-16 text-center">
+<div class="flex flex-col items-center gap-12 px-4 py-16 text-center">
 <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-lg border-4 border-white dark:border-background-dark">
 <img alt="山田太郎のプロフィール写真" class="w-full h-full object-cover" data-alt="A professional and friendly headshot of Taro Yamada" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbG3-L5reEDOnq32x1vxlONBV1M-cx1zc5U-cTMyBgN0a4bRyp4EDADINYVZmPFN8HSdS7tv4lGC9ZVcekgd8dBsV93BF4SaHJstVG1NP5DJbjUe1N6u6cfsIxlfeL9bHfUU-eTk89XMc0yhYj6fx5bTgPquQfvI0KsjOZxxo8ecYhbNzAJfwSVkV2WMxefSIHdLEyS7yXWH7bHusZbKWz8Jco8DQcG4I0k3yX0sL9Z7wS3WArcSg2wU92gO-49TpkmjLLsBQFYA"/>
 </div>
-<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-6 w-full items-center">
 <div class="flex flex-col gap-4">
 <h1 class="text-gray-900 dark:text-white text-4xl sm:text-5xl font-black leading-tight tracking-tighter">oto</h1>
 <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg font-normal leading-relaxed max-w-xl mx-auto">専門学校で教える中年講師。エセエンジニアですが、学生の相談にはプロ級で対応します。ITにより詳しくなりたい！</p>
 </div>
-<div class="bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-xl border border-solid border-black/10 dark:border-white/10 p-6 flex flex-col items-center gap-4 max-w-md mx-auto">
-<h3 class="text-gray-800 dark:text-white text-lg font-bold">ポートフォリオサイト</h3>
-<p class="text-gray-600 dark:text-gray-300 text-sm">私の制作実績やスキルについては、こちらのサイトをご覧ください。</p>
-<a class="flex min-w-[84px] max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto" href="https://otosan.streamlit.app/" target="_blank">
-<span class="truncate">otosan.streamlit.app</span>
+<div class="flex flex-col sm:flex-row items-center gap-4">
+<a class="flex min-w-[84px] max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity shadow-md hover:shadow-lg transform hover:-translate-y-0.5" href="https://otosan.streamlit.app/" target="_blank">
+<span class="truncate">ポートフォリオを見る</span>
 <span class="material-symbols-outlined ml-2 text-xl">open_in_new</span>
+</a>
+<a class="flex min-w-[84px] max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-white/50 dark:bg-black/20 text-gray-800 dark:text-white text-base font-bold leading-normal tracking-[0.015em] backdrop-blur-sm border border-solid border-black/10 dark:border-white/10 hover:bg-white/80 dark:hover:bg-black/30 transition-colors w-full sm:w-auto" href="#details">
+<span class="truncate">もっと詳しく！</span>
+<span class="material-symbols-outlined ml-2 text-xl">arrow_downward</span>
 </a>
 </div>
 </div>
 </div>
 </div>
 </main>
+<section class="w-full max-w-4xl mx-auto py-16 px-4 sm:px-0" id="details">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-xl border border-solid border-black/10 dark:border-white/10 p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">school</span>
+</div>
+<h3 class="text-gray-900 dark:text-white text-lg font-bold">担当科目</h3>
+</div>
+<ul class="space-y-2 text-gray-600 dark:text-gray-300 text-sm list-none pl-0">
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>プログラミング基礎</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>Webデザイン</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>データベース設計</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>ITパスポート対策</li>
+</ul>
+</div>
+<div class="bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-xl border border-solid border-black/10 dark:border-white/10 p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">workspace_premium</span>
+</div>
+<h3 class="text-gray-900 dark:text-white text-lg font-bold">所有資格・免許</h3>
+</div>
+<ul class="space-y-2 text-gray-600 dark:text-gray-300 text-sm list-none pl-0">
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>基本情報技術者</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>応用情報技術者</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>Oracle Master Silver</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>第一種普通自動車免許</li>
+</ul>
+</div>
+<div class="bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-xl border border-solid border-black/10 dark:border-white/10 p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">sports_esports</span>
+</div>
+<h3 class="text-gray-900 dark:text-white text-lg font-bold">趣味</h3>
+</div>
+<ul class="space-y-2 text-gray-600 dark:text-gray-300 text-sm list-none pl-0">
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>ガジェット集め</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>ゲーム（RPG・シミュレーション）</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>週末プログラミング</li>
+<li class="flex items-start"><span class="material-symbols-outlined text-base mr-2 mt-0.5 text-primary">chevron_right</span>愛犬との散歩</li>
+</ul>
+</div>
+</div>
+</section>
 <footer class="flex flex-col items-center gap-4 px-5 py-8 text-center @container">
 <div class="flex flex-wrap justify-center gap-6">
 <a aria-label="GitHub" class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
@@ -109,4 +160,5 @@
 </div>
 </div>
 </div>
+
 </body></html>
